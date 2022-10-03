@@ -17,10 +17,11 @@ function ListGames() {
 
     return (
         <div>
+            <h3>Lista de games:</h3>
             <ul>
                 {list.map((obj) => {
                     return (
-                        <div>
+                        <div>                            
                             <li>{obj.id}</li>
                             <li>{obj.title}</li>
                             <li>{obj.year}</li>
