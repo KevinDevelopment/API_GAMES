@@ -18,19 +18,27 @@ function ListGames() {
     return (
         <div>
             <h3>Lista de games:</h3>
-            <ul>
-                {list.map((obj) => {
-                    return (
-                        <div>                            
-                            <li>{obj.id}</li>
-                            <li>{obj.title}</li>
-                            <li>{obj.year}</li>
-                            <li>{obj.price}</li>
-                            <br />
+
+            {list.map((obj) => {
+                return (
+                    <div>
+                        <div className="card">
+                            <div className="card-header">
+                                <span>{obj.title}</span>
+                            </div>
+                            <div className="card-body">
+                                <ul>
+                                    <li>{obj.id}</li>
+                                    <li>{obj.year}</li>
+                                    <li>{obj.price}</li>
+                                </ul>
+                            </div>
                         </div>
-                    )
-                })}
-            </ul>
+                        <br />
+                    </div>
+                )
+            })}
+
         </div>
     );
 }
