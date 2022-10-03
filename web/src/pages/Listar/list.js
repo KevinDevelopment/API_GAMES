@@ -15,8 +15,19 @@ function ListGames() {
             })
     }, []);
 
+    function Deletargame(id) {
+        axios.delete(`http://localhost:8081/game/${id}`)
+            .then((response) => {
+                console.log("Game deletado");
+                window.location.reload();
+                alert("Game deletado com sucesso !")
+            }).catch((erro) => {
+                console.log(`desculpe houve um erro ${erro}`)
+            })
+    };
+
     return (
-        <div>
+        <div className="container">
             <h3>Lista de games:</h3>
 
             {list.map((obj) => {
@@ -34,6 +45,7 @@ function ListGames() {
                                 </ul>
                             </div>
                         </div>
+                        <button onClick={() => Deletargame(`${obj.id}`)} className="btn btn-success mb-5 mt-1">Deletar</button>
                         <br />
                     </div>
                 )
