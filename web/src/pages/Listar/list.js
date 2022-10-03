@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function ListGames() {
 
@@ -46,6 +47,7 @@ function ListGames() {
                             </div>
                         </div>
                         <button onClick={() => Deletargame(`${obj.id}`)} className="btn btn-success mb-5 mt-1">Deletar</button>
+                        <Link to={`/games/${obj.id}`}><button className="btn btn-success mb-5 mt-1 ms-2">Editar</button></Link>
                         <br />
                     </div>
                 )
