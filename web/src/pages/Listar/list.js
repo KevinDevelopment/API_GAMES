@@ -29,6 +29,7 @@ function ListGames() {
 
     return (
         <div className="container">
+            <Link to={"/games"}><button className="btn btn-primary mt-2 mb-5">Cadastrar novo game</button></Link>
             <h3>Lista de games:</h3>
 
             {list.map((obj) => {
@@ -46,8 +47,8 @@ function ListGames() {
                                 </ul>
                             </div>
                         </div>
-                        <button onClick={() => Deletargame(`${obj.id}`)} className="btn btn-success mb-5 mt-1">Deletar</button>
-                        <Link to={`/games/${obj.id}`}><button className="btn btn-success mb-5 mt-1 ms-2">Editar</button></Link>
+                        <button onClick={() => Deletargame(`${obj.id}`)} className="btn btn-primary mb-5 mt-1">Deletar</button>
+                        <Link to={`/games/${obj.id}`}><button className="btn btn-primary mb-5 mt-1 ms-2">Editar</button></Link>
                         <br />
                     </div>
                 )

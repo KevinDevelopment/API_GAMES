@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Games() {
 
@@ -16,7 +17,7 @@ function Games() {
     }).then((Response) => {
       console.log("Dados cadastrados com sucesso !!")
       alert("dados cadastrados com sucesso !")
-      window.location.reload();      
+      window.location.reload();
     }).catch((erro) => {
       console.log("houve um erro na inserção dos dados" + erro)
     })
@@ -42,6 +43,7 @@ function Games() {
         </div>
       </div>
       <button onClick={() => CadastrarGame()} className="btn btn-primary mt-3">Cadastrar</button>
+      <Link to={"/"}><button className="btn btn-primary mt-3 ms-2">Games</button></Link>
     </div>
   );
 }
