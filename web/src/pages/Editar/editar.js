@@ -13,7 +13,7 @@ function Games() {
 
 
   function EditGames() {
-    axios.put("http://localhost:8081/game", {
+    axios.put("http://localhost:8082/game", {
       id: gameId,
       title: titulo,
       year: ano,
@@ -47,7 +47,7 @@ function Games() {
         </div>
       </div>
       <button onClick={() => EditGames()} className="btn btn-primary mt-3">Editar</button>
-      <Link to={`/`}><button className="btn btn-primary mt-3 ms-2">Games</button></Link>
+      <Link to={`/list`}><button className="btn btn-primary mt-3 ms-2">Games</button></Link>
     </div>
   );
 }

@@ -7,7 +7,7 @@ function ListGames() {
     const [list, setList] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8081/games')
+        axios.get('http://localhost:8082/games')
             .then((response) => {
                 console.log(response.data);
                 setList(response.data.games);
@@ -17,7 +17,7 @@ function ListGames() {
     }, []);
 
     function Deletargame(id) {
-        axios.delete(`http://localhost:8081/game/${id}`)
+        axios.delete(`http://localhost:8082/game/${id}`)
             .then((response) => {
                 console.log("Game deletado");
                 window.location.reload();

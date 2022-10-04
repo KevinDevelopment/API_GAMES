@@ -10,7 +10,7 @@ function Games() {
 
 
   function CadastrarGame() {
-    axios.post('http://localhost:8081/game', {
+    axios.post('http://localhost:8082/game', {
       title: titulo,
       year: ano,
       price: preco
@@ -43,7 +43,7 @@ function Games() {
         </div>
       </div>
       <button onClick={() => CadastrarGame()} className="btn btn-primary mt-3">Cadastrar</button>
-      <Link to={"/"}><button className="btn btn-primary mt-3 ms-2">Games</button></Link>
+      <Link to={"/list"}><button className="btn btn-primary mt-3 ms-2">Games</button></Link>
     </div>
   );
 }

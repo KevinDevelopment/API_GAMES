@@ -11,8 +11,9 @@ const ListGames = require("./controller/ListGame");
 const DeleteController = require("./controller/DeleteController");
 const AlterController = require("./controller/AlterController");
 const UserController = require("./controller/UserController");
+const LoginController = require("./controller/LoginController");
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(helmet());
@@ -23,8 +24,9 @@ app.use("/", ListGames);
 app.use("/", DeleteController);
 app.use("/", AlterController);
 app.use("/", UserController);
+app.use("/", LoginController);
 
-const PORT = 8083;
+const PORT = 8082;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 });

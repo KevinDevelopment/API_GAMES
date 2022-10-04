@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+
+function Login() {
 
 
-function Register() {
-
-  const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
-  function RegisterUser() {
-    axios.post("http://localhost:8082/user", {
-      name: name,
+  function auth() {
+    axios.post("http://localhost:8082/auth", {
       email: email,
       password: password
     })
       .then(() => {
-        console.log("data ok")
-        window.location.reload();
-        alert("Registered user succesfull")
+        navigate("/list")
       }).catch((erro) => {
         console.log(`there was an error ${erro}`)
+        alert("email or password invalids")
       })
   }
 
@@ -28,21 +26,18 @@ function Register() {
     <div className="container">
       <div className="card mt-3">
         <div className="card-header">
-          <h4>novo por aqui ? cadastre-se agora</h4>
+          <h4>Faça login em sua conta</h4>
         </div>
         <div className="card-body">
-          <label>Name:</label>
-          <input type="text" onChange={(event) => setName(event.target.value)} className="form-control mb-2" />
           <label>Email:</label>
           <input type="email" onChange={(event) => setEmail(event.target.value)} className="form-control mb-2" />
           <label>Password:</label>
           <input type="password" onChange={(event) => setPassword(event.target.value)} className="form-control" />
         </div>
       </div>
-      <button onClick={() => RegisterUser()} className="btn btn-primary mt-3">Register</button>
-      <Link to={"/auth"}><button className="btn btn-primary mt-3 ms-2">Login</button></Link>
+      <button onClick={() => auth()} className="btn btn-primary mt-3">Login</button>
     </div>
   );
 }
 
-export default Register;
+export default Login;
