@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Games = require("../model/Games");
+const auth = require("../middleware/middleware");
 
-router.get("/games", (request, response) => {
+router.get("/games", auth, (request, response) => {
   Games.findAll({
     raw: true, order: [
       ['id', 'DESC']
