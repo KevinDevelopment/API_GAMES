@@ -17,7 +17,7 @@ function Login() {
       .then((response) => {
         navigate("/list")
         const token = response.data.token;
-        localStorage.setItem("token", token);        
+        localStorage.setItem("token", token);
       }).catch((erro) => {
         console.log(`there was an error ${erro}`)
         alert("email or password invalids")

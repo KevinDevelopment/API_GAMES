@@ -11,7 +11,7 @@ function ListGames() {
             Authorization: `Bearer ${localStorage.getItem("token")}`
         }
     }
-    
+
 
     useEffect(() => {
         axios.get('http://localhost:8082/games', axiosConfig)
@@ -34,6 +34,16 @@ function ListGames() {
             })
     };
 
+    function formatDate(data) {
+        const date = data.substring(0, 10).split('-').reverse().join('/');
+        return date;
+    };
+
+    function formatHour(Hour) {
+        const date = Hour.substring(11, 19)
+        return date;
+    };
+
     return (
         <div className="container">
             <Link to={"/games"}><button className="btn btn-primary mt-2 mb-5">Cadastrar novo game</button></Link>
@@ -45,13 +55,17 @@ function ListGames() {
                     <div>
                         <div className="card">
                             <div className="card-header">
-                                <span>{obj.title}</span>
+                                <span>Titulo: {obj.title}</span>
                             </div>
                             <div className="card-body">
                                 <ul>
-                                    <li>{obj.id}</li>
-                                    <li>{obj.year}</li>
-                                    <li>{obj.price}</li>
+                                    <li>Identificação: {obj.id}</li>
+                                    <li>Ano: {obj.year}</li>
+                                    <li>Preço: {`$ ${obj.price}`}</li>
+                                    <li>Data da criação: {formatDate(obj.createdAt)}</li>
+                                    <li>Hora da criação: {formatHour(obj.createdAt)}</li>
+                                    <li>Data da atualização: {formatDate(obj.updatedAt)}</li>
+                                    <li>Hora da atualização: {formatHour(obj.updatedAt)}</li>
                                 </ul>
                             </div>
                         </div>
