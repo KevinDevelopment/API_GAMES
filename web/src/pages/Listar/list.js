@@ -6,8 +6,15 @@ function ListGames() {
 
     const [list, setList] = useState([]);
 
+    const axiosConfig = {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+    }
+    
+
     useEffect(() => {
-        axios.get('http://localhost:8082/games')
+        axios.get('http://localhost:8082/games', axiosConfig)
             .then((response) => {
                 console.log(response.data);
                 setList(response.data.games);
@@ -30,6 +37,7 @@ function ListGames() {
     return (
         <div className="container">
             <Link to={"/games"}><button className="btn btn-primary mt-2 mb-5">Cadastrar novo game</button></Link>
+            <Link to={"/auth"}><button className="btn btn-primary mt-2 mb-5 ms-2">Logout</button></Link>
             <h3>Lista de games:</h3>
 
             {list.map((obj) => {
@@ -53,7 +61,6 @@ function ListGames() {
                     </div>
                 )
             })}
-
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 function Login() {
 
@@ -14,8 +14,10 @@ function Login() {
       email: email,
       password: password
     })
-      .then(() => {
+      .then((response) => {
         navigate("/list")
+        const token = response.data.token;
+        localStorage.setItem("token", token);        
       }).catch((erro) => {
         console.log(`there was an error ${erro}`)
         alert("email or password invalids")
@@ -30,12 +32,13 @@ function Login() {
         </div>
         <div className="card-body">
           <label>Email:</label>
-          <input type="email" onChange={(event) => setEmail(event.target.value)} className="form-control mb-2" />
+          <input type="email" placeholder="email@email.com" onChange={(event) => setEmail(event.target.value)} className="form-control mb-2" />
           <label>Password:</label>
-          <input type="password" onChange={(event) => setPassword(event.target.value)} className="form-control" />
+          <input type="password" placeholder="********" onChange={(event) => setPassword(event.target.value)} className="form-control" />
         </div>
       </div>
       <button onClick={() => auth()} className="btn btn-primary mt-3">Login</button>
+      <Link to={"/"}><button className="btn btn-primary mt-3 ms-2">Register</button></Link>
     </div>
   );
 }

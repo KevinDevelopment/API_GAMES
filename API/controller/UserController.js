@@ -6,6 +6,13 @@ const bcrypt = require("bcrypt");
 router.post("/user", async (request, response) => {
 
   const { name, email, password } = request.body;
+
+  if (!name || !email || !password) {
+    return response.status(400).json({
+      message: "empty data is not allowed"
+    })
+  }
+
   const hashed = await bcrypt.hash(password, 10);
 
   const verifyUser = await Users.findOne({

@@ -21,6 +21,7 @@ function Register() {
         alert("Registered user succesfull")
       }).catch((erro) => {
         console.log(`there was an error ${erro}`)
+        alert("empty data is not allowed")
       })
   }
 
