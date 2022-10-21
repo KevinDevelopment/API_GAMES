@@ -48,7 +48,10 @@ function ListGames() {
         <div className="container">
             <Link to={"/games"}><button className="btn btn-primary mt-2 mb-5">Cadastrar novo game</button></Link>
             <Link to={"/auth"}><button className="btn btn-primary mt-2 mb-5 ms-2">Logout</button></Link>
+
+            <hr/>
             <h3>Lista de games:</h3>
+            <hr/><br/>
 
             {list.map((obj) => {
                 return (
