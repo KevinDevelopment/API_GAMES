@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Games = require("../model/Games");
+const Auth = require("../middleware/middleware")
 
-router.get("/games/:id", (request, response) => {
+router.get("/games/:id", Auth, (request, response) => {
 
   const { id } = request.params;
 

@@ -12,7 +12,7 @@ function Games() {
   const [gameId, setGameId] = useState(id);
 
 
-  function EditGames() {
+  const EditGames = () => {
     axios.put("http://localhost:8082/game", {
       id: gameId,
       title: titulo,

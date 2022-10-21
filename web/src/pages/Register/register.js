@@ -9,7 +9,7 @@ function Register() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  function RegisterUser() {
+  const RegisterUser = () => {
     axios.post("http://localhost:8082/user", {
       name: name,
       email: email,

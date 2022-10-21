@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
-  function auth() {
+  const auth = () => {
     axios.post("http://localhost:8082/auth", {
       email: email,
       password: password

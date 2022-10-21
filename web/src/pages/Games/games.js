@@ -9,7 +9,7 @@ function Games() {
   const [preco, setPreco] = useState(0);
 
 
-  function CadastrarGame() {
+  const CadastrarGame = () => {
     axios.post('http://localhost:8082/game', {
       title: titulo,
       year: ano,

@@ -23,7 +23,7 @@ function ListGames() {
             })
     }, []);
 
-    function Deletargame(id) {
+    const Deletargame = (id) => {
         axios.delete(`http://localhost:8082/game/${id}`)
             .then((response) => {
                 console.log("Game deletado");
@@ -34,12 +34,12 @@ function ListGames() {
             })
     };
 
-    function formatDate(data) {
+    const formatDate = (data) => {
         const date = data.substring(0, 10).split('-').reverse().join('/');
         return date;
     };
 
-    function formatHour(Hour) {
+    const formatHour = (Hour) => {
         const date = Hour.substring(11, 19)
         return date;
     };
