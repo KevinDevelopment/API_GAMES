@@ -39,3 +39,66 @@ Exemplo de resposta:
 ##### Falha na autenticação! 401
 Caso essa resposta aconteça, isso significa que aconteceu alguma falha durante o processo de autenticação da requisição, Motivos: token inválido, Token expirado
 
+Exemplo de resposta: 
+
+```
+{
+    "error": "token invalid",
+    "erro": {
+        "name": "JsonWebTokenError",
+        "message": "invalid token"
+    }
+}
+
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### POST /auth
+Esse endpoint é responsável por fazer o processo de login
+#### Parametros 
+email: E-mail do usuário cadastrado no sistema.
+password: senha do usuário cadastrado no sistema, com aquele determinado E-mail.
+
+Exemplo de resposta:
+
+```
+{
+    "email": "email@email.com",
+    "password": "12345"
+}
+
+```
+#### Respostas
+##### OK ! 200
+Caso essa resposta aconteça, você será logado e irá aparecer os dados do usuário logado!
+
+Exemplo de resposta:
+
+```
+{
+    "user": {
+        "id": 1,
+        "name": "usuário",
+        "email": "email@email.com",
+       
+    },
+    "token": "JWT retorna aqui "
+}
+
+```
+##### Falha na autenticação! 401
+Caso essa resposta aconteça, isso significa que aconteceu alguma falha durante o processo de autenticação do usuário.
+
+Exemplo de resposta: 
+
+```
+{
+    "message": "invalid password or user"
+}
+
+```
+
+
+
+
