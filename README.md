@@ -99,6 +99,91 @@ Exemplo de resposta:
 
 ```
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### PUT /game
+Esse endpoint é responsável por alterar os dados de um game.
+#### Parametros 
+id: ID do game cadastrado no sistema.
+title: Titulo do game.
+year: Ano de lançamento.
+price: Preço do game.
+
+Exemplo de resposta:
+
+```
+{
+    "id": 3,
+    "title": "meu jogo",
+    "year": "ano de lançamento",
+    "price": 333
+}
+
+```
+#### Respostas
+##### OK ! 200
+Caso essa resposta aconteça, você será informado de que o game foi altera.
+
+Exemplo de resposta:
+
+```
+{
+    "message": "game 0 edited succesfully"
+}
+
+```
+##### Bad Request! 400
+Caso essa resposta aconteça, isso significa que aconteceu alguma falha durante o processo de alteração dos dados do game.
+
+Exemplo de resposta: 
+
+```
+{
+    "message": "There was an error"
+}
+
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### DELETE /game/:id
+Esse endpoint é responsável por deletar um game
+#### Parametros 
+id: ID do game cadastrado no sistema.
+
+Exemplo de resposta:
+
+```
+{
+    "id": "3"
+}
+
+```
+#### Respostas
+##### OK ! 200
+Caso essa resposta aconteça, você será informado de que o game foi deletado.
+
+Exemplo de resposta:
+
+```
+{
+    "message": "deleted game succesfully"
+}
+
+```
+##### Bad Request! 400
+Caso essa resposta aconteça, isso significa que aconteceu alguma falha durante o processo de deleção do game.
+
+Exemplo de resposta: 
+
+```
+{
+    "message": "There was an error"
+}
+
+```
+
+
 
 
 
