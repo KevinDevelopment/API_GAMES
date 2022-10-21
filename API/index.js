@@ -26,7 +26,7 @@ app.use("/", AlterController);
 app.use("/", UserController);
 app.use("/", LoginController);
 
-const PORT = 8082;
+const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 });
